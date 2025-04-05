@@ -15,7 +15,9 @@ Welcome to my JavaScript project showcase! This is a collection of beginner-to-i
 - 🔹 **Window Calculator** – A basic calculator built using prompt and alert boxes.
 - 🔹 **Word Counter** – Live counter for words and characters in a textarea.
 
+## 🚀 Live Preview
 
+👉 [Experience the project live](https://theashitranjan.github.io/Web_Development_Practice/)
 
 ## 🚀 Getting Started
 
