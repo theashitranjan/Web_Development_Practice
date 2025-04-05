@@ -15,9 +15,7 @@ Welcome to my JavaScript project showcase! This is a collection of beginner-to-i
 - 🔹 **Window Calculator** – A basic calculator built using prompt and alert boxes.
 - 🔹 **Word Counter** – Live counter for words and characters in a textarea.
 
-## 📱 Mobile Preview
 
-![Mobile Preview](./screenshot_mobile.png)
 
 ## 🚀 Getting Started
 
@@ -33,7 +31,7 @@ open index.html  # or just double-click it
 
 - HTML5
 - CSS3
-- JavaScript (Vanilla)
+- JavaScript
 
 ## 👤 Author
 
