@@ -22,3 +22,21 @@ build/
 .idea/
 *.sublime-workspace
 *.sublime-project
+
+# Mac system file
+.AppleDouble
+
+# Optional npm cache
+.npm/
+
+# Parcel, Vite, etc.
+.cache/
+
+# Coverage reports
+coverage/
+
+# Storybook
+.out/
+
+# Static site generators (optional)
+public/
