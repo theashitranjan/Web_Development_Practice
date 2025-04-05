@@ -1,0 +1,58 @@
+<!-- Problem1: Digital Clock (Real-Time Update) 
+Write a JavaScript program that displays the current time (HH:MM:SS AM/PM) on a webpage. 
+The time should update every second dynamically. 
+Use setInterval(), DOM manipulation, and Date object to create a real-time digital clock. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Clock</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+            height: 90vh;
+        }
+        #display {
+            font-size: 2rem;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            background: black;
+            color: lime;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Clock</h1>
+    <div id="display"></div>
+    <script>
+        const display = document.getElementById('display');
+        function liveClock(){
+            let d =new  Date();
+            let hr = d.getHours();
+            let min = d.getMinutes();
+            let sec = d.getSeconds();
+            let ampm = hr >= 12 ? "PM":"AM";
+
+            hr = (hr % 12) || 12;
+            hr = String(hr).padStart(2, '0');
+            min = String(min).padStart(2, '0');
+            sec = String(sec).padStart(2, '0');
+
+
+            display.innerHTML = `${hr} : ${min} : ${sec}  ${ampm}`;
+        }
+
+        liveClock();
+        setInterval(liveClock,1000);
+        
+    </script>
+</body>
+</html>

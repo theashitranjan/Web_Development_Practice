@@ -1,0 +1,104 @@
+<!-- 
+Problem5: Live Weather App (AJAX + JSON)
+Use AJAX to fetch weather data from a public API (like OpenWeatherMap or a mock JSON file), and display it dynamically. 
+Create a form with a city input. On submit, use AJAX to fetch weather data in JSON format. 
+Display weather info: temperature, condition, humidity etc. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    #weatherResult {
+      margin-top: 20px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Check Weather</h2>
+    <form id="weatherForm">
+      <input type="text" id="city" placeholder="Enter city name" required />
+      <input type="submit" value="Get Weather" />
+    </form>
+    <div id="weatherResult"></div>
+  </div>
+
+  <script>
+    document.getElementById("weatherForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const city = document.getElementById("city").value.trim();
+      const resultDiv = document.getElementById("weatherResult");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", ".\\assets\\weather.json", true);
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const weatherData = JSON.parse(xhr.responseText);
+
+          if (weatherData[city]) {
+            const data = weatherData[city];
+            resultDiv.innerHTML = `Weather in <b>${city}</b>: ${data.temperature}, ${data.condition}`;
+          } else {
+            resultDiv.innerHTML = "City not found.";
+          }
+        } else {
+          resultDiv.innerHTML = "Error loading weather data.";
+        }
+      };
+
+      xhr.send();
+    });
+  </script>
+
+</body>
+</html>

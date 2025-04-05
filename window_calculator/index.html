@@ -1,0 +1,44 @@
+<!-- Problem2: 
+Simple Calculator
+Ask the user to enter two numbers using prompt(). 
+Perform addition, subtraction, multiplication, and division on the numbers. 
+Display the results using alert(). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Calculator</title>
+</head>
+<body>
+    <div>Simple Calculator</div>
+    <script>
+        // getting input from the user
+        let a = Number(prompt('Enter first no.'));
+        let b = Number(prompt('Enter second no.'));
+
+        // validating input
+        if (isNaN(a) || isNaN(b)){
+            alert('Enter the valid number');
+        }
+        else{
+            calculate();
+        }
+
+        function calculate(){
+            // calculation
+            let sum = a+b;
+            let diff = a-b;
+            let prod = a*b;
+            let quott = a/b;
+
+            // displaying result
+            alert('Sum is: '+sum);
+            alert('Difference is: '+diff);
+            alert('Product is: '+prod);
+            alert('Quotient is: '+quott);
+        }
+
+    </script>
+</body>
+</html>

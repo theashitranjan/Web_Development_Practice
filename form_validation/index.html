@@ -1,0 +1,141 @@
+<!-- Problem4: Contact Us Form (Form Validation)
+Create a form with fields: Name, Email, Subject, Message. When the form is submitted, validate:All fields must be filled, Email must contain @ and .(dot) or in a proper format.
+If validation passes, show a thank-you message without refreshing the page. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: vertical;
+    }
+    #error {
+      color: red;
+    }
+
+    input[type='submit'] {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    input[type='submit']:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form method="post">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" >
+
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" >
+      <div id="error"></div>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" >
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" ></textarea>
+
+      <input type="submit" value="Send Message" onclick="validateForm()">
+    </form>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const error = document.getElementById('error');
+
+
+        
+
+        emailInput.addEventListener('input',()=>{
+          if (!isValidEmail(emailInput.value)){
+            error.innerText="Invalid email";
+          } else {
+            error.innerText="";
+          }
+        });
+
+        function isEmpty(string){
+          // cheking if value is empty
+          return string.trim() === "";
+        }
+
+        function isValidEmail(email){
+          return /^[^\s@]+@[^\s@]+\.[^\s@.]+[^\.@]$/.test(email.trim());
+        }
+
+
+
+        function validateForm(){
+          event.preventDefault();
+
+          let name = document.getElementById('name').value;
+          let email = emailInput.value;
+          let subject = document.getElementById('subject').value;
+          let message = document.getElementById('message').value;
+
+          if (isEmpty(name) || isEmpty(email) || isEmpty(subject) || isEmpty(message)){
+            // warns if any field is empty
+            alert('All fields are required!');
+            return;
+          } else if (!isValidEmail(email)){
+            alert('Please enter a valid email.');
+          } else {
+            alert('Form validates successfully!');
+          }
+
+
+
+        }
+    </script>
+
+  </div>
+</body>
+</html>

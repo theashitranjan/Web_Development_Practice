@@ -1,0 +1,7 @@
+{
+  "Delhi": { "temperature": "32°C", "condition": "Sunny" },
+  "Mumbai": { "temperature": "29°C", "condition": "Humid" },
+  "Kolkata": { "temperature": "31°C", "condition": "Rainy" },
+  "Bihar": { "temperature": "35°C", "condition": "Hot" },
+  "Ranchi": { "temperature": "30°C", "condition": "Cloudy" }
+}

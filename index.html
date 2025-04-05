@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript Projects Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      padding: 30px 20px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #333;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 0 30px 50px;
+      width: 100%;
+      max-width: 1000px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card a {
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .card a:hover {
+      color: #0056b3;
+    }
+
+    footer {
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My JavaScript Projects</h1>
+  </header>
+
+  <div class="project-grid">
+    <div class="card"><a href="Digital_Clock/index.html">Digital Clock</a></div>
+    <div class="card"><a href="even_odd/index.html">Even or Odd</a></div>
+    <div class="card"><a href="form_validation/index.html">Form Validation</a></div>
+    <div class="card"><a href="greeting/index.html">Greeting App</a></div>
+    <div class="card"><a href="guess_the_number/index.html">Guess the Number</a></div>
+    <div class="card"><a href="password_strength_check/index.html">Password Strength Checker</a></div>
+    <div class="card"><a href="to_do_list/index.html">To-Do List</a></div>
+    <div class="card"><a href="weather_app/index.html">Weather App</a></div>
+    <div class="card"><a href="window_calculator/index.html">Window Calculator</a></div>
+    <div class="card"><a href="word_counter/index.html">Word Counter</a></div>
+  </div>
+
+  <footer>
+    &copy; 2025 Prince Kumar | All rights reserved.
+  </footer>
+
+</body>
+</html>

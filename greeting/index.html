@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Greeting Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      transition: background-color 0.5s ease-in-out;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #message {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    #name {
+      color: #007BFF;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">
+    <h1>Hello <span id="name"></span></h1>
+  </div>
+  <script>
+    // accessing elements by IDs correctly
+    const message = document.getElementById('message');
+    const name = document.getElementById('name');
+
+    // getting input from the user
+    let name_entered = prompt('Enter your nice name: ');
+    let color = prompt('Enter your favourite color');
+
+    // updating the Document
+    name.innerText = name_entered;
+    document.body.style.backgroundColor = color;
+  </script>
+</body>
+</html>

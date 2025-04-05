@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Even-Odd Checker</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #83a4d4, #b6fbff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 80%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      margin-bottom: 15px;
+      transition: border 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: #007BFF;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #msg {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Even or Odd Number Checker</h1>
+    <input type="text" id="number" placeholder="Enter a number..." />
+    <br />
+    <button onclick="checkEvenOdd()">Check</button>
+    <div id="msg"></div>
+  </div>
+
+  <script>
+    function checkEvenOdd() {
+      const msg = document.getElementById('msg');
+      const num = Number(document.getElementById('number').value.trim());
+
+      if (isNaN(num)) {
+        msg.style.color = 'red';
+        msg.innerText = '⚠️ Please enter a valid number.';
+      } else {
+        msg.style.color = '#333';
+        if (num % 2 === 0) {
+          msg.innerHTML = `✅ The number <strong>${num}</strong> is <span style="color:green;">Even</span>.`;
+        } else {
+          msg.innerHTML = `✅ The number <strong>${num}</strong> is <span style="color:orange;">Odd</span>.`;
+        }
+      }
+    }
+  </script>
+</body>
+</html>

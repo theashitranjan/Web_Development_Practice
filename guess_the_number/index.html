@@ -1,0 +1,62 @@
+<!-- Problem4: Guess the Secret Number
+The program should generate a random number between 1 and 10. 
+Ask the user to guess the number. If they guess correctly, show a success message. 
+If they guess wrong, ask them to try again until they get it right. Limit the number of guesses to 3 attempts and display "Game Over" if they fail. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number Game</title>
+</head>
+<body>
+    <input type="text" id="num">
+    <button onclick="checkNum()">Check</button>
+    <div id="msg"></div>
+    <script>
+        // accessing elements
+        const msg = document.getElementById('msg');
+        const numInput = document.getElementById('num');
+
+        // generating the secret number
+        const secretNum = Math.floor(Math.random() * 10) + 1;
+
+        // attempts
+        let attempt = 0;
+        const maxAttempt = 3;
+        let won = false;
+
+        // checkNum
+        function checkNum(){
+            // accessing the number
+            let num = Number(numInput.value);
+            // validating input
+            if (isNaN(num) || num > 10 || num < 1){
+                msg.innerHTML = "Enter a valid number between 0-10";
+                return;
+            }
+            // checking if attempt is valid
+        
+            attempt++;
+
+            if (num === secretNum){
+                won = true;
+                msg.innerHTML = "You guessed it right. <b>Congratulations</b>";
+                numInput.disabled=true;
+            } else{
+                let remain = (maxAttempt-attempt);
+                msg.innerHTML = "Wrong answer";
+                if ( remain !=0){
+                    msg.innerHTML+= "<br> Try again <br>"+remain+" attempts left";
+                } else{
+                    msg.innerHTML += "<br> Game Over<br> Correct answer was "+secretNum;
+                    numInput.disabled=true;
+                }
+            }
+
+            
+
+        }
+    </script>
+</body>
+</html>

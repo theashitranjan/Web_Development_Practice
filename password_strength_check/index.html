@@ -1,0 +1,93 @@
+<!-- Problem3: Password Strength Checker
+Write a JavaScript program that creates a password strength checker that updates dynamically based on the user's input. 
+You can use the password input field where users can type a password. 
+Display password strength as Weak, Medium, or Strong based on:
+Weak: Less than 6 characters.
+Medium: 6-10 characters and contains letters & numbers.
+Strong: More than 10 characters and contains letters, numbers & special symbols.
+Show real-time strength indicators using a progress bar. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+    <style>
+        body {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        progress {
+            width: 200px;
+            height: 15px;
+            appearance: none;
+            border-radius: 5px;
+        }
+        /* Default progress bar style */
+        progress::-webkit-progress-bar {
+            background-color: #eee;
+            border-radius: 5px;
+        }
+        /* Dynamic colors */
+        progress.weak::-webkit-progress-value {
+            background-color: red;
+        }
+        progress.moderate::-webkit-progress-value {
+            background-color: orange;
+        }
+        progress.strong::-webkit-progress-value {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="password" id="pwdInput">
+    <label for="pwdIndicator" id="pwdLabel">Please enter a password</label>
+    <progress id="pwdIndicator" value="0" max="100"></progress>
+
+    <script>
+        const pwdInput = document.getElementById('pwdInput');
+        const pwdLabel = document.getElementById('pwdLabel');
+        const pwdIndicator = document.getElementById('pwdIndicator');
+
+        
+
+    pwdInput.addEventListener("input", () => {
+        const pwd = pwdInput.value;
+        pwdIndicator.classList.remove('weak', 'moderate', 'strong');
+
+        const hasNumber = /[0-9]/.test(pwd);
+        const hasLetter = /[a-zA-Z]/.test(pwd);
+        const hasSpecial = /[^a-zA-Z0-9]/.test(pwd);
+
+        if (pwd.length === 0) {
+            pwdLabel.textContent = "Please Enter a password";
+            pwdIndicator.value = 0;
+        } else if (pwd.length > 10 && hasLetter && hasNumber && hasSpecial) {
+            pwdLabel.textContent = "Strong Password";
+            pwdIndicator.classList.add('strong');
+            pwdIndicator.value = 100;
+        } else if (pwd.length >= 6 && pwd.length <= 10 && hasLetter && (hasNumber || hasSpecial)) {
+            pwdLabel.textContent = "Moderate Password";
+            pwdIndicator.classList.add('moderate');
+            pwdIndicator.value = 66;
+        } else {
+            pwdLabel.textContent = "Weak Password";
+            pwdIndicator.classList.add('weak');
+            pwdIndicator.value = 33;
+        }
+});
+
+    </script>
+</body>
+</html>
